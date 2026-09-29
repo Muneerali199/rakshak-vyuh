@@ -1,0 +1,176 @@
+{
+  "generated": "2026-09-29T19:07:07+0530",
+  "image": "vyuh/gateway:latest",
+  "note": "Captures produced by a live strongSwan pair. Ground truth is the configuration, not an annotation.",
+  "tunnels": [
+    {
+      "tunnel": "T1",
+      "name": "ikev2-modern",
+      "file": "vyuh-ikev2-modern.pcap",
+      "sha256": "2ab8ddb476dc18800e417ce9199054fff09fafac0dfecc0855bebf8f493108c4",
+      "packets": 592,
+      "expect": [],
+      "clean": true,
+      "note": "AES-256-GCM, PRF-SHA2-256, ECP-256, PFS on. The reference posture.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T10",
+      "name": "ikev1-aggressive-dh2048",
+      "file": "vyuh-ikev1-aggressive-dh2048.pcap",
+      "sha256": "aa20f1fe400af429afa6f57ebed8bab547aa5ec9e21d3495446e30a2b517496a",
+      "packets": 36,
+      "expect": [
+        "VYU-002",
+        "VYU-011"
+      ],
+      "clean": false,
+      "note": "Aggressive Mode with 3DES but a 2048-bit group. Paired with T3 this separates the key exchange finding from the cipher finding.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T11",
+      "name": "ikev2-sha256-integrity",
+      "file": "vyuh-ikev2-sha256-integrity.pcap",
+      "sha256": "424d562c3c85b1dc3204074212df6542e3d13638508b2764683dd27459fb28ae",
+      "packets": 588,
+      "expect": [],
+      "clean": true,
+      "note": "AES-256-GCM with SHA2-256 integrity on a 384-bit curve. A second clean baseline, so a grade of A is shown on more than one configuration.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T12",
+      "name": "ikev2-dh1536",
+      "file": "vyuh-ikev2-dh1536.pcap",
+      "sha256": "0088b4d822cdb876d4144a3df82fd00e427301b262e8d17e315d071c69c23941",
+      "packets": 588,
+      "expect": [
+        "VYU-020"
+      ],
+      "clean": false,
+      "note": "MODP-1536. RFC 8247 lists this as SHOULD NOT, which is a different severity from the 1024-bit group, and the corpus otherwise only shows the worse case.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T13",
+      "name": "ikev1-main-mode-des",
+      "file": "vyuh-ikev1-main-mode-des.pcap",
+      "sha256": "51b4d7f9cc675b3b13ac897d9f08a75fee2028b04c784be5868fe8cc6a772292",
+      "packets": 46,
+      "expect": [
+        "VYU-011"
+      ],
+      "clean": false,
+      "note": "Single DES under IKEv1 Main Mode. A 56-bit block cipher is a different exposure from 3DES's 64-bit block, and the two are not interchangeable.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T14",
+      "name": "ikev2-null-esp",
+      "file": "vyuh-ikev2-null-esp.pcap",
+      "sha256": "643e3059130cf8a11524a13cfe54668f0ddcfd93d477b7e94d7e4860a3b02842",
+      "packets": 588,
+      "expect": [
+        "VYU-002"
+      ],
+      "clean": false,
+      "note": "A perfect IKE suite protecting data with NULL. The control plane is audited clean and the data plane has no confidentiality at all, which a control-plane-only check would score as healthy.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T2",
+      "name": "ikev2-weak-dh",
+      "file": "vyuh-ikev2-weak-dh.pcap",
+      "sha256": "99c8c488517527a3098e769d44ca710e2aba163a7a02a2b197042afb9953a314",
+      "packets": 588,
+      "expect": [
+        "VYU-020"
+      ],
+      "clean": false,
+      "note": "MODP-1024 key exchange. RFC 8247 marks this MUST NOT.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T3",
+      "name": "ikev1-aggressive-3des",
+      "file": "vyuh-ikev1-aggressive-3des.pcap",
+      "sha256": "4b2e60e37047790924807ef2118aa84eaa4368a7a65d238a0a7235b49ddfbdb0",
+      "packets": 36,
+      "expect": [
+        "VYU-001",
+        "VYU-002",
+        "VYU-011",
+        "VYU-020"
+      ],
+      "clean": false,
+      "note": "IKEv1 Aggressive Mode, PSK, 3DES, no PFS. The headline finding.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T4",
+      "name": "ikev2-null-encryption",
+      "file": "vyuh-ikev2-null-encryption.pcap",
+      "sha256": "f01a0a7bdb45161c287513b08fd179374210d31335ade743149185cb73e27bdf",
+      "packets": 590,
+      "expect": [
+        "VYU-010"
+      ],
+      "clean": false,
+      "note": "NULL encryption. No confidentiality whatsoever.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T5",
+      "name": "ikev2-x25519",
+      "file": "vyuh-ikev2-x25519.pcap",
+      "sha256": "aec888a4668cc23340777d8c11af6f60d22fc98678b7f605c5ec69972c9eb6e7",
+      "packets": 588,
+      "expect": [],
+      "clean": true,
+      "note": "X25519 with AES-256-GCM. Modern suite, shorter rekey.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T6",
+      "name": "ikev2-legacy-integrity",
+      "file": "vyuh-ikev2-legacy-integrity.pcap",
+      "sha256": "f7581a24684b5b5695f7cafd314fadd524541703ed9b88f9d62e0e3c9779ece0",
+      "packets": 588,
+      "expect": [
+        "VYU-031"
+      ],
+      "clean": false,
+      "note": "SHA-1 integrity. Demoted to MUST- rather than prohibited.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T7",
+      "name": "ikev1-main-mode-3des",
+      "file": "vyuh-ikev1-main-mode-3des.pcap",
+      "sha256": "2111bb66d26adae77348c0c3a84837dc37c98f2b0deddd4a4c325d0395dd6978",
+      "packets": 50,
+      "expect": [
+        "VYU-002",
+        "VYU-011",
+        "VYU-020"
+      ],
+      "clean": false,
+      "note": "IKEv1 Main Mode with 3DES and MODP-1024. Same ciphers as T3 with the exchange type changed, so the 3DES finding can be separated from the Aggressive Mode finding.",
+      "ground_truth_observed": {}
+    },
+    {
+      "tunnel": "T9",
+      "name": "ikev2-aes192-3des-esp",
+      "file": "vyuh-ikev2-aes192-3des-esp.pcap",
+      "sha256": "9932a12decde4ae2dc0fbc50d0c46f0c112f82bef8a61ae89bf08fcf2bdc6584",
+      "packets": 36,
+      "expect": [
+        "VYU-011"
+      ],
+      "clean": false,
+      "note": "A modern IKE suite protecting data with 3DES. IKE and ESP are negotiated separately, so a tunnel can be strong at the control plane and weak at the data plane.",
+      "ground_truth_observed": {}
+    }
+  ]
+}

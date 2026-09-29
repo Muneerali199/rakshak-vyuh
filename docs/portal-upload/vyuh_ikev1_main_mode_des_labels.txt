@@ -1,0 +1,23 @@
+[1790688778] selector-src=10.97.0.0 dst=10.97.1.0
+[1790688778] icmp-interactive-start
+[1790688780] icmp-interactive-done
+[1790688780] icmp-bulk-start
+[1790688782] icmp-bulk-done
+[1790688782] voip-start
+[1790688782] voip-done
+[1790688782] video-start
+[1790688783] video-done
+[1790688783] dns-start
+;; communications error to 10.97.1.0#53: connection refused
+;; communications error to 10.97.1.0#53: connection refused
+;; communications error to 10.97.1.0#53: connection refused
+;; no servers could be reached
+
+[1790688783] dns-done
+[1790688783] ssh-start
+2026/09/29 13:33:03 socat[165] E exactly 2 addresses required (there are 1); use option "-h" for help
+[1790688783] ssh-done
+[1790688783] http-start
+2026/09/29 13:33:03 socat[171] E exactly 2 addresses required (there are 1); use option "-h" for help
+[1790688783] http-done
+[1790688783] traffic-complete

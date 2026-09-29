@@ -1,0 +1,46 @@
+{
+  "_note": "Corrected metadata for the VYUH IKE corpus. The AIKosh auto-generation tool read the CSV index and described a single row of it, inventing a geographical scope and a performance-comparison use case that the data does not support. These values are measured from the captures by the reference analyser. Replace the tool's output with these.",
+
+  "Dataset Title": "VYUH IKE: IPsec negotiation and protected traffic corpus",
+
+  "Sector": "Cybersecurity and Network Security",
+
+  "Geographical coverage": "Not applicable. All captures were generated on isolated Docker networks using RFC 1918 private addresses. No real network, location, or user is represented.",
+
+  "Year of Range": "2026",
+
+  "Time Granularity": "Static. Each capture is a single point-in-time association with one rekey interval and no rekey observed.",
+
+  "Tags": [
+    "ipsec",
+    "ikev1",
+    "ikev2",
+    "esp",
+    "strongswan",
+    "network security",
+    "packet capture",
+    "pcap",
+    "cryptographic posture",
+    "traffic analysis",
+    "RFC 8247",
+    "RFC 8221",
+    "harvest now decrypt later",
+    "cybersecurity"
+  ],
+
+  "Short Description": "Eleven packet captures of real IPsec tunnels, produced by two strongSwan 5.9.13 gateways that actually negotiated with each other. 4,290 packets, 3,530 of them ESP, spanning IKEv1 and IKEv2 across eleven distinct cryptographic configurations. Each capture is paired with the suite that went onto the wire and the SHA-256 of the file. Every traffic label was set before the packet was sent and the generator's own log of when each class ran ships beside the capture.",
+
+  "About Dataset": "The corpus covers the failure modes that matter in IPsec deployments. Five IKEv2 tunnels are graded A and demonstrate a correct reference posture; six are deliberately misconfigured and span MODP-1024, MODP-1536, 3DES, single DES, NULL encryption, SHA-1 integrity and IKEv1 Aggressive Mode. Each misconfiguration exists to isolate a different variable: T7 and T3 differ only in exchange type, and T3 and T10 differ only in key exchange group, so the cipher finding can be separated from the mode finding and the group finding from both.\n\nThe traffic classes are synthetic packet patterns, not real application sessions. They are deliberately shaped so that they separate by interval and size alone, which is what a passive observer can see and what a classifier would key on. They are not recordings of WhatsApp, mail or video traffic, and a model fitted on them learns the generator rather than the network. This is stated in the dataset card that ships inside the archive.\n\nEvery expectation in the reference test suite was read from tcpdump -nvv or swanctl --list-sas on the live gateway that produced the capture, never from the parser under test. Where the analyser and tcpdump disagree, tcpdump was treated as correct and the parser was fixed.",
+
+  "Purpose of Dataset": "To let other teams test an IPsec dissector and validate security posture rules against captures whose ground truth is independently verifiable, which no public dataset currently offers.\n\n1. Dissector testing. Six IKEv1 and IKEv2 exchanges with deliberately varied framing, including the length-framed substructures that libstrongswan sends and the bare form that RFC 7296 specifies.\n2. Posture rule validation. Eleven configurations covering a correct reference posture and ten distinct failure modes, each with a known expected grade.\n3. Traffic analysis research. A companion measurement on this corpus shows that packet size and timing alone classify encrypted ESP traffic at 70 percent under leave-one-tunnel-out evaluation, against a 43 percent majority baseline. The evaluator abstains when it is unsure, and its confusion matrix is published, including the class it never classifies correctly.\n4. Reproducibility. The entire corpus regenerates with one command and the same Docker image, so a reviewer can rebuild it rather than take it on trust.\n\nKnown limits are stated in the dataset card rather than left for a reviewer to discover: IPv4 tunnel mode only, no real application sessions, four IKEv1 captures carry no ESP data because the child association does not settle, perfect forward secrecy is never observed because no capture spans a rekey, and two further captures are deliberately withheld because the current analyser scores the IKE suite rather than the ESP child suite.",
+
+  "Licence": "MIT",
+
+  "Language": "English",
+
+  "Data Format": "PCAP (primary), CSV and DuckDB (derived index)",
+
+  "Number of Records": "11 captures, 4,290 packets, 3,530 ESP packets, 7 captures carrying tunnel data",
+
+  "Source": "Synthesised on local Docker networks by strongSwan 5.9.13 gateways under RAKSHAK.VYUH (SIH26160, Team Venom). No third-party or public network traffic is included."
+}

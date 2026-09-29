@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1800" height="900" viewBox="0 0 1800 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .stage-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: bold; fill: #1a1a1a; }
+      .stage-desc { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #424242; }
+      .flow-label { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; }
+      .flow-sub { font-family: Arial, Helvetica, sans-serif; font-size: 11px; fill: #424242; }
+    </style>
+  </defs>
+  
+  <!-- Transparent background -->
+  <rect width="1800" height="900" fill="none"/>
+  
+  <!-- LEFT SECTION: Text Content -->
+  <g id="left-methodology">
+    
+    <!-- Stage 1 -->
+    <g id="stage1">
+      <rect x="50" y="50" width="70" height="70" fill="#2E7D32" rx="8"/>
+      <text x="85" y="95" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#ffffff">01</text>
+      
+      <text x="140" y="70" class="stage-title">Protocol Dissection</text>
+      <text x="140" y="95" class="stage-desc">• IKEv1/v2 handshake parser (Rust + nom)</text>
+      <text x="140" y="115" class="stage-desc">• SA proposals + Transform ID resolution</text>
+    </g>
+    
+    <!-- Stage 2 -->
+    <g id="stage2">
+      <rect x="50" y="160" width="70" height="70" fill="#1565C0" rx="8"/>
+      <text x="85" y="205" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#ffffff">02</text>
+      
+      <text x="140" y="180" class="stage-title">Compliance Engine</text>
+      <text x="140" y="205" class="stage-desc">• 15 RFC-cited posture rules (VYU-001 to VYU-015)</text>
+      <text x="140" y="225" class="stage-desc">• RFC 8221, 8247, NIST 800-77 checks</text>
+    </g>
+    
+    <!-- Stage 3 -->
+    <g id="stage3">
+      <rect x="50" y="270" width="70" height="70" fill="#F57C00" rx="8"/>
+      <text x="85" y="315" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#ffffff">03</text>
+      
+      <text x="140" y="290" class="stage-title">Evidence Ledger</text>
+      <text x="140" y="315" class="stage-desc">• SHA-256 hash chain + PCAP binding</text>
+      <text x="140" y="335" class="stage-desc">• Every finding cites packet number</text>
+    </g>
+    
+    <!-- Stage 4 -->
+    <g id="stage4">
+      <rect x="50" y="380" width="70" height="70" fill="#7B1FA2" rx="8"/>
+      <text x="85" y="425" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#ffffff">04</text>
+      
+      <text x="140" y="400" class="stage-title">Traffic Intelligence (ML)</text>
+      <text x="140" y="425" class="stage-desc">• XGBoost + 1D-CNN ensemble</text>
+      <text x="140" y="445" class="stage-desc">• Side-channel analysis, measured only</text>
+    </g>
+    
+    <!-- Key Principles -->
+    <g id="principles">
+      <rect x="50" y="510" width="750" height="140" fill="#F5F5F5" stroke="#424242" stroke-width="1" rx="8"/>
+      
+      <text x="70" y="540" font-family="Arial" font-size="18" font-weight="bold" fill="#000">Passive-Only</text>
+      <text x="250" y="540" font-family="Arial" font-size="15" fill="#424242">Never decrypts payloads</text>
+      
+      <text x="70" y="575" font-family="Arial" font-size="18" font-weight="bold" fill="#000">Evidence-First</text>
+      <text x="250" y="575" font-family="Arial" font-size="15" fill="#424242">Every finding backed by ledger</text>
+      
+      <text x="70" y="610" font-family="Arial" font-size="18" font-weight="bold" fill="#000">Honest AI</text>
+      <text x="250" y="610" font-family="Arial" font-size="15" fill="#424242">ML for patterns, not scoring</text>
+      
+      <text x="450" y="540" font-family="Arial" font-size="18" font-weight="bold" fill="#000">Sovereign</text>
+      <text x="600" y="540" font-family="Arial" font-size="15" fill="#424242">Zero cloud, air-gapped</text>
+      
+      <text x="450" y="575" font-family="Arial" font-size="18" font-weight="bold" fill="#000">Validation</text>
+      <text x="600" y="575" font-family="Arial" font-size="15" fill="#424242">137 tests, 6 real captures</text>
+      
+      <text x="450" y="610" font-family="Arial" font-size="18" font-weight="bold" fill="#000">Testbed</text>
+      <text x="600" y="610" font-family="Arial" font-size="15" fill="#424242">strongSwan 5.9.13, Docker</text>
+    </g>
+    
+    <!-- Tech Stack -->
+    <text x="50" y="690" font-family="Arial" font-size="13" fill="#666666" font-style="italic">
+      Stack: Rust • XGBoost • PyTorch • DuckDB • Tauri
+    </text>
+    
+  </g>
+  
+  <!-- RIGHT SECTION: Flow Diagram -->
+  <g id="right-flow" transform="translate(950, 50)">
+    
+    <!-- PCAP Input -->
+    <rect x="0" y="0" width="180" height="55" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3" rx="6"/>
+    <text x="90" y="25" text-anchor="middle" class="flow-label" fill="#2E7D32">PCAP FILE</text>
+    <text x="90" y="42" text-anchor="middle" class="flow-sub">Offline Input</text>
+    
+    <!-- Arrow -->
+    <line x1="90" y1="55" x2="90" y2="85" stroke="#424242" stroke-width="3"/>
+    <polygon points="90,85 85,75 95,75" fill="#424242"/>
+    
+    <!-- CipherLens -->
+    <rect x="0" y="85" width="180" height="55" fill="#E3F2FD" stroke="#1565C0" stroke-width="3" rx="6"/>
+    <text x="90" y="110" text-anchor="middle" class="flow-label" fill="#1565C0">CIPHERLENS</text>
+    <text x="90" y="127" text-anchor="middle" class="flow-sub">IKE Dissector</text>
+    
+    <!-- Arrow -->
+    <line x1="90" y1="140" x2="90" y2="170" stroke="#424242" stroke-width="3"/>
+    <polygon points="90,170 85,160 95,160" fill="#424242"/>
+    
+    <!-- AttackMap -->
+    <rect x="0" y="170" width="180" height="55" fill="#FFF3E0" stroke="#F57C00" stroke-width="3" rx="6"/>
+    <text x="90" y="195" text-anchor="middle" class="flow-label" fill="#F57C00">ATTACKMAP</text>
+    <text x="90" y="212" text-anchor="middle" class="flow-sub">15 Posture Rules</text>
+    
+    <!-- ML Branch -->
+    <line x1="90" y1="197" x2="250" y2="197" stroke="#7B1FA2" stroke-width="2" stroke-dasharray="4,4"/>
+    <rect x="250" y="180" width="150" height="45" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" rx="6"/>
+    <text x="325" y="198" text-anchor="middle" class="flow-label" fill="#7B1FA2">Traffic ML</text>
+    <text x="325" y="213" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">XGBoost+CNN</text>
+    
+    <!-- Arrow -->
+    <line x1="90" y1="225" x2="90" y2="255" stroke="#424242" stroke-width="3"/>
+    <polygon points="90,255 85,245 95,245" fill="#424242"/>
+    
+    <!-- Ledger -->
+    <rect x="0" y="255" width="180" height="55" fill="#FFEBEE" stroke="#D32F2F" stroke-width="3" rx="6"/>
+    <text x="90" y="280" text-anchor="middle" class="flow-label" fill="#D32F2F">LEDGER</text>
+    <text x="90" y="297" text-anchor="middle" class="flow-sub">SHA-256 Chain</text>
+    
+    <!-- Arrow -->
+    <line x1="90" y1="310" x2="90" y2="340" stroke="#424242" stroke-width="3"/>
+    <polygon points="90,340 85,330 95,330" fill="#424242"/>
+    
+    <!-- Output -->
+    <rect x="0" y="340" width="180" height="70" fill="#E8EAF6" stroke="#3F51B5" stroke-width="3" rx="6"/>
+    <text x="90" y="365" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#3F51B5">GRADE: A-F</text>
+    <text x="90" y="385" text-anchor="middle" class="flow-sub">JSON • HTML • CBOM</text>
+    <text x="90" y="400" text-anchor="middle" class="flow-sub">Remediation Config</text>
+    
+    <!-- Badge -->
+    <rect x="30" y="430" width="120" height="28" fill="#4CAF50" rx="14"/>
+    <text x="90" y="449" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">AIR-GAPPED ✓</text>
+    
+    <!-- Dataset Box -->
+    <rect x="0" y="490" width="550" height="120" fill="#fff9e6" stroke="#FFA726" stroke-width="2" rx="6"/>
+    <text x="15" y="515" font-family="Arial" font-size="15" font-weight="bold" fill="#E65100">VYUH Corpus - 6 Real Captures</text>
+    
+    <text x="15" y="540" font-family="Arial" font-size="13" fill="#424242">T1: Modern (AES-256-GCM, ECP-256) → A</text>
+    <text x="15" y="560" font-family="Arial" font-size="13" fill="#424242">T2: Weak DH (MODP-1024) → F</text>
+    <text x="15" y="580" font-family="Arial" font-size="13" fill="#424242">T3: Aggressive (3DES, MD5, PSK) → F</text>
+    
+    <text x="300" y="540" font-family="Arial" font-size="13" fill="#424242">T4: NULL Encryption → F</text>
+    <text x="300" y="560" font-family="Arial" font-size="13" fill="#424242">T5: X25519 → A</text>
+    <text x="300" y="580" font-family="Arial" font-size="13" fill="#424242">T6: Legacy SHA-1 → B</text>
+    
+  </g>
+  
+</svg>

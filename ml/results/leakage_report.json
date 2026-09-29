@@ -1,0 +1,130 @@
+{
+  "windows": 297,
+  "features": [
+    "packets",
+    "mean_size",
+    "stddev_size",
+    "size_range",
+    "median_gap",
+    "p95_gap",
+    "bytes_per_s",
+    "packets_per_s",
+    "forward_fraction",
+    "bulk_fraction",
+    "small_fraction",
+    "duration"
+  ],
+  "classes": [
+    "dns",
+    "icmp-bulk",
+    "icmp-interactive",
+    "video"
+  ],
+  "abstain_label": "abstain",
+  "loso_accuracy_abstain_counts_as_wrong": 0.7003,
+  "loso_accuracy_on_answered": 0.7197,
+  "coverage": 0.9731,
+  "abstentions": 8,
+  "abstain_threshold": 0.55,
+  "majority_baseline": 0.431,
+  "folds": [
+    {
+      "held_out": "T1",
+      "test_windows": 36,
+      "answered": 36,
+      "abstained": 0
+    },
+    {
+      "held_out": "T11",
+      "test_windows": 35,
+      "answered": 35,
+      "abstained": 0
+    },
+    {
+      "held_out": "T12",
+      "test_windows": 35,
+      "answered": 33,
+      "abstained": 2
+    },
+    {
+      "held_out": "T14",
+      "test_windows": 37,
+      "answered": 37,
+      "abstained": 0
+    },
+    {
+      "held_out": "T2",
+      "test_windows": 38,
+      "answered": 37,
+      "abstained": 1
+    },
+    {
+      "held_out": "T4",
+      "test_windows": 38,
+      "answered": 37,
+      "abstained": 1
+    },
+    {
+      "held_out": "T5",
+      "test_windows": 40,
+      "answered": 37,
+      "abstained": 3
+    },
+    {
+      "held_out": "T6",
+      "test_windows": 37,
+      "answered": 36,
+      "abstained": 1
+    },
+    {
+      "held_out": "T9",
+      "test_windows": 1,
+      "answered": 1,
+      "abstained": 0
+    }
+  ],
+  "confusion_matrix": [
+    [
+      0,
+      1,
+      0,
+      5,
+      2
+    ],
+    [
+      1,
+      87,
+      23,
+      15,
+      2
+    ],
+    [
+      0,
+      14,
+      106,
+      0,
+      1
+    ],
+    [
+      3,
+      19,
+      0,
+      15,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "protocol": "leave-one-tunnel-out",
+  "honesty": {
+    "traffic_classes_are_synthetic": true,
+    "one_capture_per_configuration": true,
+    "single_vendor": "strongSwan 5.9.13",
+    "no_real_application_sessions": true
+  }
+}

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="850" viewBox="0 0 1400 850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Helvetica, Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 11px; fill: #666666; }
+      .stage-number { font-family: Helvetica, Arial, sans-serif; font-size: 32px; font-weight: bold; }
+      .stage-title { font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #1a1a1a; }
+      .stage-desc { font-family: Helvetica, Arial, sans-serif; font-size: 10px; fill: #424242; }
+      .stage-tech { font-family: 'Courier New', monospace; font-size: 9px; font-style: italic; }
+      .section-header { font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #1a1a1a; }
+      .principle-title { font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #1a1a1a; }
+      .principle-desc { font-family: Helvetica, Arial, sans-serif; font-size: 10px; fill: #424242; }
+      .footer-text { font-family: Helvetica, Arial, sans-serif; font-size: 9px; fill: #999999; font-style: italic; }
+      .validation-label { font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="850" fill="#ffffff"/>
+  
+  <!-- Dashed border frame -->
+  <rect x="40" y="10" width="1330" height="745" fill="none" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="8,8"/>
+  
+  <!-- Title Section -->
+  <text x="60" y="55" class="title">Technical Methodology</text>
+  <text x="60" y="78" class="subtitle">Four-stage passive analysis pipeline for IPsec VPN security assessment</text>
+  
+  <!-- Stage 1: Protocol Dissection -->
+  <rect x="60" y="120" width="280" height="140" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2" rx="0"/>
+  <text x="75" y="165" class="stage-number" fill="#2E7D32">01</text>
+  <text x="75" y="195" class="stage-title">Protocol Dissection</text>
+  <text x="75" y="215" class="stage-desc">IKEv1/v2 handshake parser</text>
+  <text x="75" y="228" class="stage-desc">• SA proposals extraction</text>
+  <text x="75" y="241" class="stage-desc">• Transform ID resolution</text>
+  <text x="75" y="254" class="stage-desc">• IANA registry validation</text>
+  <text x="75" y="245" class="stage-tech" fill="#2E7D32">Rust · nom parser · pcap</text>
+  
+  <!-- Arrow 1->2 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242"/>
+    </marker>
+  </defs>
+  <line x1="340" y1="190" x2="380" y2="190" stroke="#424242" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 2: Compliance Engine -->
+  <rect x="380" y="120" width="280" height="140" fill="#E3F2FD" stroke="#1565C0" stroke-width="2" rx="0"/>
+  <text x="395" y="165" class="stage-number" fill="#1565C0">02</text>
+  <text x="395" y="195" class="stage-title">Compliance Engine</text>
+  <text x="395" y="215" class="stage-desc">RFC-cited security checks</text>
+  <text x="395" y="228" class="stage-desc">• 15 posture rules (VYU-001 to VYU-015)</text>
+  <text x="395" y="241" class="stage-desc">• RFC 8221, 8247, NIST 800-77</text>
+  <text x="395" y="254" class="stage-desc">• Critical/High/Medium/Low tiers</text>
+  <text x="395" y="245" class="stage-tech" fill="#1565C0">Deterministic · Zero ML inference</text>
+  
+  <!-- Arrow 2->3 -->
+  <line x1="660" y1="190" x2="700" y2="190" stroke="#424242" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 3: Evidence Ledger -->
+  <rect x="700" y="120" width="280" height="140" fill="#FFF3E0" stroke="#F57C00" stroke-width="2" rx="0"/>
+  <text x="715" y="165" class="stage-number" fill="#F57C00">03</text>
+  <text x="715" y="195" class="stage-title">Evidence Ledger</text>
+  <text x="715" y="215" class="stage-desc">Tamper-evident chain</text>
+  <text x="715" y="228" class="stage-desc">• SHA-256 hash linking</text>
+  <text x="715" y="241" class="stage-desc">• PCAP digest binding</text>
+  <text x="715" y="254" class="stage-desc">• Packet number citation</text>
+  <text x="715" y="245" class="stage-tech" fill="#F57C00">Cryptographic proof · BLAKE3</text>
+  
+  <!-- Arrow 3->4 -->
+  <line x1="980" y1="190" x2="1020" y2="190" stroke="#424242" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 4: Traffic Intelligence -->
+  <rect x="1020" y="120" width="280" height="140" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" rx="0"/>
+  <text x="1035" y="165" class="stage-number" fill="#7B1FA2">04</text>
+  <text x="1035" y="195" class="stage-title">Traffic Intelligence</text>
+  <text x="1035" y="215" class="stage-desc">Side-channel analysis</text>
+  <text x="1035" y="228" class="stage-desc">• XGBoost + 1D-CNN ensemble</text>
+  <text x="1035" y="241" class="stage-desc">• Packet size/timing features</text>
+  <text x="1035" y="254" class="stage-desc">• Measured, never scored</text>
+  <text x="1035" y="245" class="stage-tech" fill="#7B1FA2">PyTorch · gradient boosting · offline</text>
+  
+  <!-- Core Engineering Principles Header -->
+  <text x="60" y="335" class="section-header">Core Engineering Principles</text>
+  
+  <!-- Principle 1: Passive-Only -->
+  <rect x="60" y="360" width="300" height="120" fill="#F5F5F5" stroke="#424242" stroke-width="1" rx="4"/>
+  <text x="85" y="405" font-size="28">🔒</text>
+  <text x="130" y="392" class="principle-title">Passive-Only</text>
+  <text x="130" y="410" class="principle-desc">Never decrypts ESP payloads</text>
+  <text x="130" y="423" class="principle-desc">Never injects packets</text>
+  <text x="130" y="436" class="principle-desc">Never touches production traffic</text>
+  <text x="130" y="449" class="principle-desc">Handshake analysis only</text>
+  
+  <!-- Principle 2: Evidence-First -->
+  <rect x="390" y="360" width="300" height="120" fill="#F5F5F5" stroke="#424242" stroke-width="1" rx="4"/>
+  <text x="415" y="405" font-size="28">📋</text>
+  <text x="460" y="392" class="principle-title">Evidence-First</text>
+  <text x="460" y="410" class="principle-desc">Every finding cites packet number</text>
+  <text x="460" y="423" class="principle-desc">Every claim backed by ledger entry</text>
+  <text x="460" y="436" class="principle-desc">Every score explainable</text>
+  <text x="460" y="449" class="principle-desc">Zero inference without proof</text>
+  
+  <!-- Principle 3: Honest AI -->
+  <rect x="720" y="360" width="300" height="120" fill="#F5F5F5" stroke="#424242" stroke-width="1" rx="4"/>
+  <text x="745" y="405" font-size="28">🎯</text>
+  <text x="790" y="392" class="principle-title">Honest AI</text>
+  <text x="790" y="410" class="principle-desc">Parser for deterministic fields</text>
+  <text x="790" y="423" class="principle-desc">ML only for traffic patterns</text>
+  <text x="790" y="436" class="principle-desc">No fake confidence scores</text>
+  <text x="790" y="449" class="principle-desc">Unknown reported as unknown</text>
+  
+  <!-- Principle 4: Sovereign -->
+  <rect x="1050" y="360" width="300" height="120" fill="#F5F5F5" stroke="#424242" stroke-width="1" rx="4"/>
+  <text x="1075" y="405" font-size="28">🏠</text>
+  <text x="1120" y="392" class="principle-title">Sovereign</text>
+  <text x="1120" y="410" class="principle-desc">Zero cloud dependencies</text>
+  <text x="1120" y="423" class="principle-desc">Zero telemetry, zero network calls</text>
+  <text x="1120" y="436" class="principle-desc">Air-gapped ready</text>
+  <text x="1120" y="449" class="principle-desc">Offline demo certified</text>
+  
+  <!-- Ground Truth Validation Header -->
+  <text x="60" y="545" class="section-header">Ground Truth Validation</text>
+  
+  <!-- Validation Box -->
+  <rect x="60" y="570" width="1290" height="110" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" rx="4"/>
+  <text x="80" y="600" class="validation-label" fill="#D32F2F">VYUH Corpus: 6 Real Captures</text>
+  
+  <text x="80" y="625" class="stage-desc">T1: Modern (AES-256-GCM, ECP-256) → Grade A</text>
+  <text x="80" y="638" class="stage-desc">T2: Weak DH (AES-128-CBC, MODP-1024) → Grade F</text>
+  <text x="80" y="651" class="stage-desc">T3: Aggressive Mode (3DES, MD5, PSK) → Grade F</text>
+  
+  <text x="480" y="625" class="stage-desc">T4: NULL Encryption (MD5) → Grade F</text>
+  <text x="480" y="638" class="stage-desc">T5: X25519 (AES-256-GCM) → Grade A</text>
+  <text x="480" y="651" class="stage-desc">T6: Legacy Integrity (AES-128-CBC, SHA-1, MODP-2048) → Grade B</text>
+  
+  <text x="940" y="635" class="stage-tech" fill="#D32F2F">137 tests · corpus.rs checks analyser vs tcpdump output</text>
+  <text x="940" y="650" class="stage-tech" fill="#D32F2F">strongSwan 5.9.13 gateways · Docker testbed</text>
+  
+  <!-- Footer -->
+  <text x="60" y="725" class="footer-text">Tech Stack: Rust (pcap, nom, rayon) · XGBoost + PyTorch · DuckDB · Tauri + React · Typst · SHA-256 + BLAKE3</text>
+  <text x="1020" y="725" class="footer-text" text-anchor="start">Deadline: 20 Sept 2026 · SIH26160 (NTRO) · Team Venom</text>
+  
+</svg>

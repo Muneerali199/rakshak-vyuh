@@ -1,0 +1,12 @@
+capture_id,filename,pcap_sha256,ike_version,sa_id,encryption,integrity,prf,key_exchange,key_bits,pfs_observed,aggressive,rejected,grade,posture_score,findings,critical_ids,packets,ike_messages,esp_flows,has_data
+T1,vyuh-ikev2-modern.pcap,2ab8ddb476dc18800e417ce9199054fff09fafac0dfecc0855bebf8f493108c4,IKEv2,96b031a7f72e8c07,ENCR_AES_GCM_16,,PRF_HMAC_SHA2_256,KE_ECDH_256,256,"",false,true,A,99,1,"",592,16,3,true
+T10,vyuh-ikev1-aggressive-dh2048.pcap,aa20f1fe400af429afa6f57ebed8bab547aa5ec9e21d3495446e30a2b517496a,IKEv1,19c91bc39435ebeb,3DES,SHA1,SHA1,,168,"",true,false,F,0,7,VYU-002,36,36,0,false
+T11,vyuh-ikev2-sha256-integrity.pcap,424d562c3c85b1dc3204074212df6542e3d13638508b2764683dd27459fb28ae,IKEv2,731ff41cdbd7b236,ENCR_AES_GCM_16,,PRF_HMAC_SHA2_256,KE_ECDH_384,256,"",false,true,A,99,1,"",588,16,3,true
+T12,vyuh-ikev2-dh1536.pcap,0088b4d822cdb876d4144a3df82fd00e427301b262e8d17e315d071c69c23941,IKEv2,02e5625ca2afa2a4,ENCR_AES_CBC,AUTH_HMAC_SHA2_256_128,PRF_HMAC_SHA2_256,KE_DH_1536,128,"",false,true,C,74,2,"",588,16,3,true
+T13,vyuh-ikev1-main-mode-des.pcap,51b4d7f9cc675b3b13ac897d9f08a75fee2028b04c784be5868fe8cc6a772292,IKEv1,02522f01953e29c6,DES,SHA1,SHA1,MODP-1024,56,"",false,false,F,0,7,VYU-020,46,46,0,false
+T2,vyuh-ikev2-weak-dh.pcap,99c8c488517527a3098e769d44ca710e2aba163a7a02a2b197042afb9953a314,IKEv2,1307a2c1d58aba59,ENCR_AES_CBC,AUTH_HMAC_SHA1_96,PRF_HMAC_SHA1,KE_DH_1024,128,"",false,false,F,39,4,VYU-020,588,16,3,true
+T3,vyuh-ikev1-aggressive-3des.pcap,4b2e60e37047790924807ef2118aa84eaa4368a7a65d238a0a7235b49ddfbdb0,IKEv1,02e73f6203e49bd9,3DES,SHA1,SHA1,MODP-1024,168,"",true,false,F,0,8,VYU-002;VYU-020,36,36,0,false
+T4,vyuh-ikev2-null-encryption.pcap,f01a0a7bdb45161c287513b08fd179374210d31335ade743149185cb73e27bdf,IKEv2,4504a9896ffa3b45,ENCR_NULL,AUTH_HMAC_MD5_96,PRF_HMAC_MD5,KE_DH_1024,0,"",false,true,F,0,5,VYU-010;VYU-020;VYU-030,590,16,3,true
+T5,vyuh-ikev2-x25519.pcap,aec888a4668cc23340777d8c11af6f60d22fc98678b7f605c5ec69972c9eb6e7,IKEv2,5f26084afb6543f9,ENCR_AES_GCM_16,,PRF_HMAC_SHA2_256,KE_X25519,256,"",false,true,A,99,1,"",588,16,3,true
+T6,vyuh-ikev2-legacy-integrity.pcap,f7581a24684b5b5695f7cafd314fadd524541703ed9b88f9d62e0e3c9779ece0,IKEv2,9a6445b0e452c0c5,ENCR_AES_CBC,AUTH_HMAC_SHA1_96,PRF_HMAC_SHA1,KE_DH_2048,128,"",false,true,B,89,3,"",588,16,3,true
+T7,vyuh-ikev1-main-mode-3des.pcap,2111bb66d26adae77348c0c3a84837dc37c98f2b0deddd4a4c325d0395dd6978,IKEv1,116d8db64e56ed25,3DES,SHA1,SHA1,MODP-1024,168,"",false,false,F,0,7,VYU-020,50,50,0,false

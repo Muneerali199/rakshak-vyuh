@@ -1,0 +1,65 @@
+{
+  "capture_sha256": "e4df13440401c88d2e09ec7d5614d48d13e2cd71c132b64f26c347b844451b7d",
+  "tool": "RAKSHAK.VYUH",
+  "tool_version": "0.1.0",
+  "entries": [
+    {
+      "sequence": 0,
+      "canonical": "VYU-041\u0001info\u0001PFS state not observed in this capture\u0001No CREATE_CHILD_SA or Quick Mode exchange appeared in the capture, so PFS could be neither confirmed nor denied. Absence of evidence, not evidence of absence.\u0001NIST SP 800-77 Rev. 1 §5.3\u0001none\u00011\u000110.73.0.2\u000110.73.0.3\u0001No child-SA rekey observed\u0001Capture across a rekey boundary (typically 8 hours) to confirm the PFS configuration.",
+      "payload_digest": "3543463f7edaeadc6a5fff9ae88b2c9c5f1c310d6354a89b74c5c5a6e6b49503",
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "digest": "c7d1fd27b026753296b73976abb6a157c366936326c67a99119a416b276cf20d"
+    },
+    {
+      "sequence": 1,
+      "canonical": "VYU-031\u0001low\u0001SHA-1 integrity is demoted to MUST-\u0001RFC 8221 moved AUTH_HMAC_SHA1_96 from MUST to MUST- in 2017. HMAC-SHA1 is not broken the way bare SHA-1 is, but it is on the way out and will not be mandated going forward.\u0001RFC 8221 §6 — AUTH_HMAC_SHA1_96 is MUST-\u0001BrokenCryptoAlgorithm\u00011\u000110.73.0.2\u000110.73.0.3\u0001SHA1\u0001Schedule a move to AUTH_HMAC_SHA2_256_96. Low urgency; plan rather than panic.",
+      "payload_digest": "fb60e86278e7f56ea4025f10ba7afef66d0ea88d4d354b322ab3833e98f5f967",
+      "previous": "c7d1fd27b026753296b73976abb6a157c366936326c67a99119a416b276cf20d",
+      "digest": "5cf2377f991810d60d3e0e70f3c5e8440c6df5fc1f2c56633d11b1c4e6e89884"
+    },
+    {
+      "sequence": 2,
+      "canonical": "VYU-033\u0001low\u0001SHA-1 pseudorandom function is demoted to MUST-\u0001HMAC-SHA1 as a PRF is not broken the way bare SHA-1 is, but RFC 8247 moved it to MUST- and it will not be required of new implementations. It is a migration item, not an incident.\u0001RFC 8247 §3.2 — PRF_HMAC_SHA1 is MUST-\u0001BrokenCryptoAlgorithm\u00011\u000110.73.0.2\u000110.73.0.3\u0001SHA1\u0001Move to PRF_HMAC_SHA2_256 alongside the cipher migration. In IKEv1 this is only reachable through interoperability extensions, which is a reason to migrate to IKEv2.",
+      "payload_digest": "dae1215da055c5fdf4c5208dd0d7e150f2f15301def1dcbea5a1dd4d3a14519d",
+      "previous": "5cf2377f991810d60d3e0e70f3c5e8440c6df5fc1f2c56633d11b1c4e6e89884",
+      "digest": "427b9758f05c7e92f5cc4cd2bb41e6e41b5e83f179573b73187d411191dcdf80"
+    },
+    {
+      "sequence": 3,
+      "canonical": "VYU-001\u0001medium\u0001Legacy IKEv1 in use\u0001The tunnel negotiates ISAKMP (IKEv1). IKEv2 resists denial of service, supports multiple key exchanges, and removes the Aggressive Mode identity leak entirely.\u0001RFC 7296 §1.1 — IKEv2 is the current Internet Standard for IKE\u0001none\u00011\u000110.73.0.2\u000110.73.0.3\u0001IKEv1\u0001Migrate the peer to IKEv2 and disable IKEv1 once both endpoints support it.",
+      "payload_digest": "9806f54988b49a362042d1268005929ca7389ea5a8a8bd8c2673eea52ab95012",
+      "previous": "427b9758f05c7e92f5cc4cd2bb41e6e41b5e83f179573b73187d411191dcdf80",
+      "digest": "fbc82d33b49f37767d52bb4e08176dd92c61b569bba43dbeb4dbc8f1c5931fe1"
+    },
+    {
+      "sequence": 4,
+      "canonical": "VYU-060\u0001medium\u0001Gateway identities disclosed on the wire\u0001The following identities were readable without decryption: dcd96f48a85a8df63d32d740be2eaaa87f4d845277c335b280b458f0c70bb68a6d2c2eb649f8317abab9b23e2bd60bb16fbaf5db6fae1d7abd8ccbc598b11a2cf4ddac6a9ff6f2e5bedc01cdbe08da3e8f39c5c6e2638bb4b5e216aa3f70b8004d063ae849fc5929d4eae0ee260599a8fb4e18063a8c78460bbd2937. In a targeted environment this maps the trust graph of the organisation for free.\u0001RFC 4303 §3.1 — ESP hides its payload; the IKE identity is the leak\u0001ExposureOfSensitiveInformation\u00011\u000110.73.0.2\u000110.73.0.3\u00011 identities\u0001Use IKEv2, where identities travel inside the encrypted payload.",
+      "payload_digest": "f7fadc04bdfd8b5564a85aa6b74f04b847a46c3642df3e3feec45c3beb0585c0",
+      "previous": "fbc82d33b49f37767d52bb4e08176dd92c61b569bba43dbeb4dbc8f1c5931fe1",
+      "digest": "b52605e386fccc30218d4b47e0fb62db1a2e21c8975e63f74f1c8c4917c6e68e"
+    },
+    {
+      "sequence": 5,
+      "canonical": "VYU-011\u0001high\u00013DES in use — SWEET32 birthday exposure\u0001Triple-DES has a 64-bit block size. CBC mode leaks plaintext XOR after roughly 32 GB of ciphertext under one key, and a sustained high-throughput link reaches that in hours. This is CVE-2016-2183.\u0001RFC 8221 — ENCR_3DES is SHOULD NOT; NIST SP 800-131A retires TDEA\u0001BrokenCryptoAlgorithm\u00011\u000110.73.0.2\u000110.73.0.3\u00013DES\u0001Move to AES-256-GCM. If a peer cannot negotiate AEAD, use AES-CBC-256 with an explicit integrity transform.",
+      "payload_digest": "eca3a1e2cd8d9a945687a52cffbd01952816b0e71b62ec974685e3386b945d58",
+      "previous": "b52605e386fccc30218d4b47e0fb62db1a2e21c8975e63f74f1c8c4917c6e68e",
+      "digest": "7d1cb81149255420948267dcaf63a156264994700ff90744b95d860805343725"
+    },
+    {
+      "sequence": 6,
+      "canonical": "VYU-002\u0001critical\u0001IKEv1 Aggressive Mode sends the peer identity in the clear\u0001Aggressive Mode exchanges ID and HASH unprotected, so a passive observer learns who peers with whom and can mount an offline dictionary attack against the pre-shared key. Observed identity: dcd96f48a85a8df63d32d740be2eaaa87f4d845277c335b280b458f0c70bb68a6d2c2eb649f8317abab9b23e2bd60bb16fbaf5db6fae1d7abd8ccbc598b11a2cf4ddac6a9ff6f2e5bedc01cdbe08da3e8f39c5c6e2638bb4b5e216aa3f70b8004d063ae849fc5929d4eae0ee260599a8fb4e18063a8c78460bbd2937.\u0001RFC 2407 §4.1; CVE-2018-5389 — IKEv1 PSK is offline-crackable\u0001KeyExchangeWithoutAuthentication\u00011\u000110.73.0.2\u000110.73.0.3\u0001Aggressive Mode\u0001Switch to Main Mode or IKEv2 and replace the pre-shared key with certificate authentication.",
+      "payload_digest": "c6534d6469f4a5e0cc059ac78f54a9617c05aeb336e34b165567162e1ba44c79",
+      "previous": "7d1cb81149255420948267dcaf63a156264994700ff90744b95d860805343725",
+      "digest": "b99b7e3331fd9e7009dd3f164ba9b3770342238dc8fb2449ff3a5c4eb007fe21"
+    },
+    {
+      "sequence": 7,
+      "canonical": "VYU-020\u0001critical\u0001Weak Diffie-Hellman group (1024-bit MODP)\u0001The IKE SA is keyed over a 1024-bit finite-field group. Discrete logarithms in groups this size are within reach of a well-resourced adversary, and a passively recorded handshake can be decrypted later once the key is recovered. The Logjam measurement found 66% of scanned IPsec endpoints offering 1024-bit DH.\u0001RFC 8247 §3.3 — 1024-bit MODP is MUST NOT; NIST SP 800-57 Part 1 Rev. 5 sets 2048 as the floor\u0001InadequateEncryptionStrength\u00011\u000110.73.0.2\u000110.73.0.3\u0001MODP-1024\u0001Negotiate ECP-256 or X25519 for equivalent strength at lower CPU cost, or 2048-bit MODP if a field is required.",
+      "payload_digest": "6445deb891bcfde299efa5d8c431c79b23344b5db472bee7c156d72d2da4f5b4",
+      "previous": "b99b7e3331fd9e7009dd3f164ba9b3770342238dc8fb2449ff3a5c4eb007fe21",
+      "digest": "f47c2d396fdafab5fa29bb98fbf0304497d82f3959ec1b97a241e3c4d4f4bed2"
+    }
+  ],
+  "head": "f47c2d396fdafab5fa29bb98fbf0304497d82f3959ec1b97a241e3c4d4f4bed2",
+  "intact": true
+}

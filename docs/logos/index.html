@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RAKSHAK.VYUH — tech stack marks</title>
+<style>
+/* A contact sheet, not part of the product. Open it to see every mark at the
+   sizes a slide will use them, on both the light and the dark background. */
+:root{--bg:#0a0e14;--panel:#111823;--line:#1e2733;--fg:#e6edf3;--muted:#8b98a5;--cy:#22d3ee}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:44px 24px 80px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 32px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;
+display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.card .row{display:flex;align-items:center;gap:14px}
+.card img{width:34px;height:34px;display:block}
+.card img.small{width:22px;height:22px}
+.card .n{font-size:14px;font-weight:600}
+.card .f{font-size:11px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+.card .r{font-size:11px;color:var(--muted);margin-top:auto}
+.light{margin-top:44px;background:#fff;color:#111;border-radius:10px;padding:22px}
+.light h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:#666;margin:0 0 14px}
+.light .grid{gap:10px}
+.light .card{background:#f6f7f9;border-color:#dfe3e8;color:#111}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:38px 0 14px}
+a{color:var(--cy)}
+</style></head><body><div class="wrap">
+<h1>RAKSHAK.VYUH — tech stack marks</h1>
+<p class="sub">Official brand marks. SVGs are <code style="color:var(--cy)">currentColor</code>, so they
+inherit the surrounding text colour and work unchanged on a light or dark slide. Use the SVG in
+PowerPoint or Keynote; use the PNG only where SVG is not accepted.</p>
+
+<h2>On dark</h2>
+<div class="grid" id="dark"></div>
+
+<div class="light">
+<h2>On light</h2>
+<div class="grid" id="light"></div>
+</div>
+
+<h2>What each one is here, honestly</h2>
+<p class="sub">A logo on a slide is a claim that the tool was used. Every entry below is a
+dependency or a service in <code style="color:var(--cy)">Cargo.toml</code>,
+<code style="color:var(--cy)">package.json</code> or the testbed image. Anything not in this
+table is not in the project, and must not appear on a slide.</p>
+</div>
+<script>
+const stack = [
+  {file:"rust.svg", name:"Rust", role:"Core engine: pcap reader, IKE dissector, rule engine, ledger", fact:"crates/vyuh-core — the analyser itself"},
+  {file:"react.svg", name:"React", role:"Analyst console, score to packet drill-down", fact:"dashboard/src — 18 components"},
+  {file:"typescript.svg", name:"TypeScript", role:"Console types, mirroring the Rust report shape", fact:"dashboard/src/types.ts"},
+  {file:"vite.svg", name:"Vite", role:"Console build", fact:"dashboard build: 161 kB js, 12.7 kB css"},
+  {file:"docker.svg", name:"Docker", role:"Runs the strongSwan testbed that produces the corpus", fact:"testbed/Dockerfile — alpine 3.20"},
+  {file:"strongswan.png", name:"strongSwan", role:"Real IPsec gateways, IKEv1 and IKEv2, in Docker", fact:"5.9.13 — six tunnels, both sides captured"},
+  {file:"wireshark.svg", name:"Wireshark", role:"Ground truth for the dissector, alongside tcpdump -nvv", fact:"12 corpus tests assert against it"},
+  {file:"openssl.svg", name:"OpenSSL", role:"Reference implementation the negotiated suites are checked against", fact:"cross-check, not a dependency"},
+  {file:"python.svg", name:"Python", role:"Corpus harness: builds, merges and hashes the captures", fact:"scripts/make-corpus.py"},
+  {file:"tauri.svg", name:"Tauri", role:"Planned desktop wrapper for the console — NOT BUILT", fact:"do not put this on a slide yet"}
+];
+
+function card(s, dark) {
+  const col = dark ? "#e6edf3" : "#111";
+  return `<div class="card" style="color:${col}">
+    <div class="row">
+      <img src="${s.file}" alt="${s.name}">
+      <div><div class="n" style="color:${col}">${s.name}</div>
+      <div class="f" style="color:${dark?'#8b98a5':'#666'}">${s.file}</div></div>
+    </div>
+    <div class="r" style="color:${dark?'#8b98a5':'#555'}">${s.role}</div>
+    <div class="f" style="color:${dark?'#22d3ee':'#0e7490'}">${s.fact}</div>
+  </div>`;
+}
+document.getElementById("dark").innerHTML = stack.map(s => card(s, true)).join("");
+document.getElementById("light").innerHTML = stack.map(s => card(s, false)).join("");
+</script>
+</body></html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="1920" height="1080">
+  <style>
+    text { font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif; }
+  </style>
+
+  <!-- white ground -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- ─── title ─── -->
+  <text x="50" y="36" font-size="20" font-weight="bold" fill="#1a1a1a">Assessment Methodology</text>
+  <text x="50" y="55" font-size="11" fill="#888888">Rakshak Vyuh — passive IPsec posture analysis</text>
+
+  <!-- ═══════════════════════════════════════════════
+       FIVE PHASES — horizontal pipeline
+       ═══════════════════════════════════════════════ -->
+
+  <!-- ─── 1  INGEST ─── -->
+  <rect x="64" y="85" width="152" height="108" rx="7" ry="7"
+        fill="none" stroke="#555555" stroke-width="1"/>
+  <text x="76" y="106" font-size="12" font-weight="bold" fill="#1a1a1a">1   INGEST</text>
+  <line x1="74" y1="114" x2="206" y2="114" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="76" y="134" font-size="10" fill="#888888">passive pcap capture</text>
+  <text x="76" y="150" font-size="10" fill="#888888">SHA-256 source hash</text>
+  <text x="76" y="170" font-size="9" font-style="italic" fill="#AAAAAA">libpcap</text>
+
+  <!-- arrow 1→2 -->
+  <line x1="216" y1="139" x2="228" y2="139" stroke="#555555" stroke-width="1"/>
+  <polygon points="228,136 228,142 234,139" fill="#555555"/>
+
+  <!-- ─── 2  PARSE ─── -->
+  <rect x="234" y="85" width="152" height="108" rx="7" ry="7"
+        fill="none" stroke="#555555" stroke-width="1"/>
+  <text x="246" y="106" font-size="12" font-weight="bold" fill="#1a1a1a">2   PARSE</text>
+  <line x1="244" y1="114" x2="376" y2="114" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="246" y="134" font-size="10" fill="#888888">IKEv1 · IKEv2</text>
+  <text x="246" y="150" font-size="10" fill="#888888">SA · KE · TS · AUTH</text>
+  <text x="246" y="170" font-size="9" font-style="italic" fill="#AAAAAA">nom · zero-copy</text>
+
+  <!-- arrow 2→3 -->
+  <line x1="386" y1="139" x2="398" y2="139" stroke="#555555" stroke-width="1"/>
+  <polygon points="398,136 398,142 404,139" fill="#555555"/>
+
+  <!-- ─── 3  ASSESS ─── -->
+  <rect x="404" y="85" width="152" height="108" rx="7" ry="7"
+        fill="none" stroke="#555555" stroke-width="1"/>
+  <text x="416" y="106" font-size="12" font-weight="bold" fill="#1a1a1a">3   ASSESS</text>
+  <line x1="414" y1="114" x2="546" y2="114" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="416" y="134" font-size="10" fill="#888888">RFC 8221 · 8247</text>
+  <text x="416" y="150" font-size="10" fill="#888888">CWE · traffic shape</text>
+  <text x="416" y="170" font-size="9" font-style="italic" fill="#B8860B">rules + ML ensemble</text>
+
+  <!-- arrow 3→4 -->
+  <line x1="556" y1="139" x2="568" y2="139" stroke="#555555" stroke-width="1"/>
+  <polygon points="568,136 568,142 574,139" fill="#555555"/>
+
+  <!-- ─── 4  SCORE ─── -->
+  <rect x="574" y="85" width="152" height="108" rx="7" ry="7"
+        fill="none" stroke="#555555" stroke-width="1"/>
+  <text x="586" y="106" font-size="12" font-weight="bold" fill="#1a1a1a">4   SCORE</text>
+  <line x1="584" y1="114" x2="716" y2="114" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="586" y="134" font-size="10" fill="#888888">per-SA grade A – F</text>
+  <text x="586" y="150" font-size="10" fill="#888888">quantum-readiness</text>
+  <text x="586" y="170" font-size="9" font-style="italic" fill="#AAAAAA">KalScore</text>
+
+  <!-- arrow 4→5 -->
+  <line x1="726" y1="139" x2="738" y2="139" stroke="#555555" stroke-width="1"/>
+  <polygon points="738,136 738,142 744,139" fill="#555555"/>
+
+  <!-- ─── 5  REPORT ─── -->
+  <rect x="744" y="85" width="152" height="108" rx="7" ry="7"
+        fill="none" stroke="#555555" stroke-width="1"/>
+  <text x="756" y="106" font-size="12" font-weight="bold" fill="#1a1a1a">5   REPORT</text>
+  <line x1="754" y1="114" x2="886" y2="114" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="756" y="134" font-size="10" fill="#888888">JSON · HTML · CBOM</text>
+  <text x="756" y="150" font-size="10" fill="#888888">Typst PDF (hi · en)</text>
+  <text x="756" y="170" font-size="9" font-style="italic" fill="#AAAAAA">evidence-bound</text>
+
+  <!-- ═══════════════════════════════════════════════
+       CROSS-CUTTING GUARANTEES
+       ═══════════════════════════════════════════════ -->
+
+  <line x1="64" y1="218" x2="896" y2="218" stroke="#DDDDDD" stroke-width="0.5"/>
+  <text x="896" y="214" text-anchor="end" font-size="9" fill="#CCCCCC">guarantees</text>
+
+  <!-- Evidence Ledger -->
+  <rect x="64" y="235" width="3" height="14" rx="1" fill="#555555"/>
+  <text x="76" y="246" font-size="11" font-weight="bold" fill="#1a1a1a">Evidence Ledger</text>
+  <text x="76" y="261" font-size="10" fill="#888888">SHA-256 hash chain · every finding cites a packet number</text>
+
+  <!-- Passive -->
+  <rect x="64" y="275" width="3" height="14" rx="1" fill="#555555"/>
+  <text x="76" y="286" font-size="11" font-weight="bold" fill="#1a1a1a">Passive</text>
+  <text x="76" y="301" font-size="10" fill="#888888">read-only analysis · no decryption · no injection · no active probes</text>
+
+  <!-- Air-Gapped -->
+  <rect x="64" y="315" width="3" height="14" rx="1" fill="#555555"/>
+  <text x="76" y="326" font-size="11" font-weight="bold" fill="#1a1a1a">Air-Gapped</text>
+  <text x="76" y="341" font-size="10" fill="#888888">sovereign operation · zero cloud · zero telemetry</text>
+
+  <!-- ═══════════════════════════════════════════════
+       STANDARDS REFERENCED
+       ═══════════════════════════════════════════════ -->
+
+  <line x1="64" y1="370" x2="896" y2="370" stroke="#EEEEEE" stroke-width="0.5" stroke-dasharray="2 2"/>
+  <text x="76" y="390" font-size="9" fill="#BBBBBB">RFC 7296  ·  RFC 8221  ·  RFC 8247  ·  RFC 2408  ·  CWE  ·  IANA IKEv2 parameters  ·  CycloneDX 1.6</text>
+
+</svg>

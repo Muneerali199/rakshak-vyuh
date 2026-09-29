@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 760" width="1440" height="1520">
+  <style>
+    text { font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif; }
+    .box { fill: none; stroke: #555555; stroke-width: 1; }
+    .arrow-line { stroke: #555555; stroke-width: 1; fill: none; }
+    .arrow-head { fill: #555555; stroke: none; }
+    .name { font-size: 13px; font-weight: bold; fill: #1a1a1a; }
+    .sub  { font-size: 11px; fill: #888888; font-weight: normal; }
+  </style>
+
+  <!-- white ground -->
+  <rect width="720" height="760" fill="#FFFFFF"/>
+
+  <!-- ─── Title block ─── -->
+  <text x="50" y="42" font-size="24" font-weight="bold" fill="#1a1a1a">Rakshak Vyuh</text>
+  <text x="51" y="63" font-size="12" fill="#888888">IPsec VPN Security Assessment</text>
+
+  <!-- ─── Dashed air-gapped perimeter ─── -->
+  <rect x="40" y="90" width="600" height="580" fill="none"
+        stroke="#AAAAAA" stroke-width="1" stroke-dasharray="8 4"/>
+  <!-- label sits on top edge; white rect masks the dash -->
+  <rect x="44" y="79" width="140" height="18" fill="#FFFFFF" stroke="none"/>
+  <text x="49" y="93" font-size="10" fill="#999999">Air-Gapped Perimeter</text>
+
+  <!-- ═══════════════════════════════════════════════
+       VERTICAL SPINE — six processing stages
+       ═══════════════════════════════════════════════ -->
+
+  <!-- 1  PCAP File -->
+  <rect x="115" y="128" width="200" height="52" rx="7" ry="7" class="box"/>
+  <text x="129" y="150" class="name">PCAP File</text>
+  <text x="129" y="165" class="sub">offline capture input</text>
+
+  <!-- arrow 1→2 -->
+  <line x1="215" y1="180" x2="215" y2="212" class="arrow-line"/>
+  <polygon points="212,212 218,212 215,218" class="arrow-head"/>
+
+  <!-- 2  CipherLens -->
+  <rect x="115" y="218" width="200" height="52" rx="7" ry="7" class="box"/>
+  <text x="129" y="240" class="name">CipherLens</text>
+  <text x="129" y="255" class="sub">IKEv1 · IKEv2 dissector</text>
+
+  <!-- arrow 2→3 -->
+  <line x1="215" y1="270" x2="215" y2="302" class="arrow-line"/>
+  <polygon points="212,302 218,302 215,308" class="arrow-head"/>
+
+  <!-- 3  AttackMap -->
+  <rect x="115" y="308" width="200" height="52" rx="7" ry="7" class="box"/>
+  <text x="129" y="330" class="name">AttackMap</text>
+  <text x="129" y="345" class="sub">15 posture rules</text>
+
+  <!-- arrow 3→4 -->
+  <line x1="215" y1="360" x2="215" y2="392" class="arrow-line"/>
+  <polygon points="212,392 218,392 215,398" class="arrow-head"/>
+
+  <!-- 4  Posture Score -->
+  <rect x="115" y="398" width="200" height="52" rx="7" ry="7" class="box"/>
+  <text x="129" y="420" class="name">Posture Score</text>
+  <text x="129" y="435" class="sub">grade A to F</text>
+
+  <!-- arrow 4→5 -->
+  <line x1="215" y1="450" x2="215" y2="482" class="arrow-line"/>
+  <polygon points="212,482 218,482 215,488" class="arrow-head"/>
+
+  <!-- 5  Evidence Ledger -->
+  <rect x="115" y="488" width="200" height="52" rx="7" ry="7" class="box"/>
+  <text x="129" y="510" class="name">Evidence Ledger</text>
+  <text x="129" y="525" class="sub">SHA-256 chain</text>
+
+  <!-- arrow 5→6 -->
+  <line x1="215" y1="540" x2="215" y2="572" class="arrow-line"/>
+  <polygon points="212,572 218,572 215,578" class="arrow-head"/>
+
+  <!-- 6  Report -->
+  <rect x="115" y="578" width="200" height="52" rx="7" ry="7" class="box"/>
+  <text x="129" y="600" class="name">Report</text>
+  <text x="129" y="615" class="sub">JSON · HTML · CBOM</text>
+
+  <!-- ═══════════════════════════════════════════════
+       ML SIDE-BRANCH — single amber accent
+       ═══════════════════════════════════════════════ -->
+
+  <!-- horizontal branch from midpoint of arrow 2→3 -->
+  <line x1="215" y1="289" x2="500" y2="289" class="arrow-line"/>
+
+  <!-- vertical arrow down into amber box -->
+  <line x1="500" y1="289" x2="500" y2="344" class="arrow-line"/>
+  <polygon points="497,344 503,344 500,350" class="arrow-head"/>
+
+  <!-- amber box: Traffic Shape -->
+  <rect x="400" y="350" width="200" height="52" rx="7" ry="7"
+        fill="#FFF2CC" stroke="#555555" stroke-width="1"/>
+  <text x="414" y="372" class="name">Traffic Shape</text>
+  <text x="414" y="387" class="sub">gradient-boosted trees</text>
+
+  <!-- stub arrow — stops in empty space, never rejoins spine -->
+  <line x1="500" y1="402" x2="500" y2="428" class="arrow-line"/>
+  <polygon points="497,428 503,428 500,434" class="arrow-head"/>
+
+  <!-- caption -->
+  <text x="437" y="452" font-size="10" font-style="italic" fill="#999999">measured, never scored</text>
+</svg>

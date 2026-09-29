@@ -1,0 +1,24 @@
+# Secrets. Nothing in this file may ever be committed.
+.env
+.env.*
+*.key
+*.pem
+!.github/*.example
+testbed/pki/
+
+# Build output
+target/
+node_modules/
+dashboard/dist/
+ml/.venv/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+
+# Editor and OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+aikosh.env
+.venv-pptx/

@@ -1,0 +1,239 @@
+<mxfile host="app.diagrams.net" modified="2026-09-30T00:05:57.305Z" agent="Kiro CLI" version="22.0.0" etag="rakshak-methodology-v1">
+  <diagram name="Methodology" id="rakshak-methodology">
+    <mxGraphModel dx="1400" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title Section -->
+        <mxCell id="title" value="Technical Methodology" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="400" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="subtitle" value="Four-stage passive analysis pipeline for IPsec VPN security assessment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="65" width="500" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Stage 1: Dissection -->
+        <mxCell id="stage1-container" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#2E7D32;fillColor=#E8F5E9;strokeWidth=2;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="280" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage1-number" value="01" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=32;fontStyle=1;fontFamily=Helvetica;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="75" y="130" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage1-title" value="Protocol Dissection" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="75" y="175" width="250" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage1-desc" value="IKEv1/v2 handshake parser&lt;br&gt;• SA proposals extraction&lt;br&gt;• Transform ID resolution&lt;br&gt;• IANA registry validation" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;spacingLeft=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage1-tech" value="Rust · nom parser · pcap" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New;fontColor=#2E7D32;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="75" y="235" width="250" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Stage 2: Rule Engine -->
+        <mxCell id="stage2-container" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#1565C0;fillColor=#E3F2FD;strokeWidth=2;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="120" width="280" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage2-number" value="02" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=32;fontStyle=1;fontFamily=Helvetica;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="395" y="130" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage2-title" value="Compliance Engine" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="395" y="175" width="250" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage2-desc" value="RFC-cited security checks&lt;br&gt;• 15 posture rules (VYU-001 to VYU-015)&lt;br&gt;• RFC 8221, 8247, NIST 800-77&lt;br&gt;• Critical/High/Medium/Low tiers" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;spacingLeft=0;" vertex="1" parent="1">
+          <mxGeometry x="395" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage2-tech" value="Deterministic · Zero ML inference" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New;fontColor=#1565C0;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="395" y="235" width="250" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Stage 3: Evidence Chain -->
+        <mxCell id="stage3-container" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#F57C00;fillColor=#FFF3E0;strokeWidth=2;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="120" width="280" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage3-number" value="03" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=32;fontStyle=1;fontFamily=Helvetica;fontColor=#F57C00;" vertex="1" parent="1">
+          <mxGeometry x="715" y="130" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage3-title" value="Evidence Ledger" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="715" y="175" width="250" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage3-desc" value="Tamper-evident chain&lt;br&gt;• SHA-256 hash linking&lt;br&gt;• PCAP digest binding&lt;br&gt;• Packet number citation" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;spacingLeft=0;" vertex="1" parent="1">
+          <mxGeometry x="715" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage3-tech" value="Cryptographic proof · BLAKE3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New;fontColor=#F57C00;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="715" y="235" width="250" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Stage 4: Intelligence Layer -->
+        <mxCell id="stage4-container" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#7B1FA2;fillColor=#F3E5F5;strokeWidth=2;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="120" width="280" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage4-number" value="04" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=32;fontStyle=1;fontFamily=Helvetica;fontColor=#7B1FA2;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="130" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage4-title" value="Traffic Intelligence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="175" width="250" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage4-desc" value="Side-channel analysis&lt;br&gt;• XGBoost + 1D-CNN ensemble&lt;br&gt;• Packet size/timing features&lt;br&gt;• Measured, never scored" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;spacingLeft=0;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stage4-tech" value="PyTorch · gradient boosting · offline" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New;fontColor=#7B1FA2;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="235" width="250" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Connector arrows between stages -->
+        <mxCell id="arrow1-2" value="" style="endArrow=classic;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="stage1-container" target="stage2-container">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="190" as="sourcePoint" />
+            <mxPoint x="380" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow2-3" value="" style="endArrow=classic;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="stage2-container" target="stage3-container">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="190" as="sourcePoint" />
+            <mxPoint x="700" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow3-4" value="" style="endArrow=classic;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="stage3-container" target="stage4-container">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="190" as="sourcePoint" />
+            <mxPoint x="1020" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Bottom Section: Key Principles -->
+        <mxCell id="principles-header" value="Core Engineering Principles" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="60" y="310" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Principle 1 -->
+        <mxCell id="p1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#424242;fillColor=#F5F5F5;strokeWidth=1;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p1-icon" value="🔒" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="75" y="375" width="40" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p1-title" value="Passive-Only" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="130" y="375" width="215" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p1-desc" value="Never decrypts ESP payloads&lt;br&gt;Never injects packets&lt;br&gt;Never touches production traffic&lt;br&gt;Handshake analysis only" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="130" y="400" width="215" height="65" as="geometry" />
+        </mxCell>
+        
+        <!-- Principle 2 -->
+        <mxCell id="p2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#424242;fillColor=#F5F5F5;strokeWidth=1;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="390" y="360" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p2-icon" value="📋" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="405" y="375" width="40" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p2-title" value="Evidence-First" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="460" y="375" width="215" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p2-desc" value="Every finding cites packet number&lt;br&gt;Every claim backed by ledger entry&lt;br&gt;Every score explainable&lt;br&gt;Zero inference without proof" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="460" y="400" width="215" height="65" as="geometry" />
+        </mxCell>
+        
+        <!-- Principle 3 -->
+        <mxCell id="p3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#424242;fillColor=#F5F5F5;strokeWidth=1;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="360" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p3-icon" value="🎯" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="735" y="375" width="40" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p3-title" value="Honest AI" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="790" y="375" width="215" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p3-desc" value="Parser for deterministic fields&lt;br&gt;ML only for traffic patterns&lt;br&gt;No fake confidence scores&lt;br&gt;Unknown reported as unknown" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="790" y="400" width="215" height="65" as="geometry" />
+        </mxCell>
+        
+        <!-- Principle 4 -->
+        <mxCell id="p4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#424242;fillColor=#F5F5F5;strokeWidth=1;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="360" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p4-icon" value="🏠" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="1065" y="375" width="40" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p4-title" value="Sovereign" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="375" width="215" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="p4-desc" value="Zero cloud dependencies&lt;br&gt;Zero telemetry, zero network calls&lt;br&gt;Air-gapped ready&lt;br&gt;Offline demo certified" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="400" width="215" height="65" as="geometry" />
+        </mxCell>
+        
+        <!-- Bottom Section: Dataset & Validation -->
+        <mxCell id="validation-header" value="Ground Truth Validation" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="60" y="520" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Validation box -->
+        <mxCell id="validation-box" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D32F2F;fillColor=#FFEBEE;strokeWidth=2;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="1290" height="110" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validation-label" value="VYUH Corpus: 6 Real Captures" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Helvetica;fontColor=#D32F2F;" vertex="1" parent="1">
+          <mxGeometry x="80" y="585" width="600" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validation-desc" value="T1: Modern (AES-256-GCM, ECP-256) → Grade A&lt;br&gt;T2: Weak DH (AES-128-CBC, MODP-1024) → Grade F&lt;br&gt;T3: Aggressive Mode (3DES, MD5, PSK) → Grade F" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="80" y="610" width="380" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validation-desc2" value="T4: NULL Encryption (MD5) → Grade F&lt;br&gt;T5: X25519 (AES-256-GCM) → Grade A&lt;br&gt;T6: Legacy Integrity (AES-128-CBC, SHA-1, MODP-2048) → Grade B" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="480" y="610" width="440" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validation-tech" value="137 tests · corpus.rs checks analyser vs tcpdump output · strongSwan 5.9.13 gateways · Docker testbed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Courier New;fontColor=#D32F2F;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="940" y="610" width="390" height="55" as="geometry" />
+        </mxCell>
+        
+        <!-- Footer note -->
+        <mxCell id="footer" value="Tech Stack: Rust (pcap, nom, rayon) · XGBoost + PyTorch · DuckDB · Tauri + React · Typst · SHA-256 + BLAKE3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Helvetica;fontColor=#999999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="710" width="800" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deadline" value="Deadline: 20 Sept 2026 · SIH26160 (NTRO) · Team Venom" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontFamily=Helvetica;fontColor=#999999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="710" width="330" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Border frame (optional professional touch) -->
+        <mxCell id="frame" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#BDBDBD;fillColor=none;strokeWidth=1;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1330" height="745" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

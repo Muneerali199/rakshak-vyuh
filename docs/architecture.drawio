@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net" modified="2026-09-29T18:14:20.469Z" agent="Kiro CLI" version="22.0.0" etag="rakshak-vyuh-v1">
+  <diagram name="Pipeline" id="rakshak-pipeline">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1400" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Rakshak Vyuh" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontFamily=Helvetica;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="300" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Subtitle -->
+        <mxCell id="subtitle" value="IPsec VPN Security Assessment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontFamily=Helvetica;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="300" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Air-Gapped Perimeter Border -->
+        <mxCell id="perimeter" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=none;strokeWidth=1;dashed=1;dashPattern=4 4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="400" height="750" as="geometry" />
+        </mxCell>
+        
+        <!-- Perimeter Label -->
+        <mxCell id="perimeter-label" value="Air-Gapped Perimeter" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="70" y="145" width="150" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Box 1: PCAP File -->
+        <mxCell id="box1" value="PCAP File&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;offline capture input&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=none;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 1 to 2 -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="box1" target="box2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="280" as="sourcePoint" />
+            <mxPoint x="260" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Box 2: CipherLens -->
+        <mxCell id="box2" value="CipherLens&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;IKEv1 / IKEv2 dissector&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=none;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 2 to 3 (main spine) -->
+        <mxCell id="arrow2-main" value="" style="endArrow=classic;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="box2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="380" as="sourcePoint" />
+            <mxPoint x="260" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Branch point from box2 -->
+        <mxCell id="branch-point" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#333333;fillColor=#333333;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="256" y="375" width="8" height="8" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow branch to ML box -->
+        <mxCell id="arrow-ml" value="" style="endArrow=classic;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="branch-point" target="ml-box">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="264" y="379" as="sourcePoint" />
+            <mxPoint x="500" y="460" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="379" />
+              <mxPoint x="460" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ML Box: Traffic Shape -->
+        <mxCell id="ml-box" value="Traffic Shape&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;gradient-boosted trees&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D4A017;fillColor=#FFF4E6;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="430" width="280" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- ML annotation -->
+        <mxCell id="ml-note" value="measured, never scored" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Helvetica;fontColor=#999999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="500" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Box 3: AttackMap -->
+        <mxCell id="box3" value="AttackMap&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;15 posture rules&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=none;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 3 to 4 -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="box3" target="box4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="480" as="sourcePoint" />
+            <mxPoint x="260" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Box 4: Posture Score -->
+        <mxCell id="box4" value="Posture Score&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;grade A to F&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=none;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="500" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 4 to 5 -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="box4" target="box5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="580" as="sourcePoint" />
+            <mxPoint x="260" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Box 5: Evidence Ledger -->
+        <mxCell id="box5" value="Evidence Ledger&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;SHA-256 chain&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=none;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="600" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 5 to 6 -->
+        <mxCell id="arrow5" value="" style="endArrow=classic;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="box5" target="box6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="680" as="sourcePoint" />
+            <mxPoint x="260" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Box 6: Report -->
+        <mxCell id="box6" value="Report&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#666666&quot;&gt;JSON / HTML / CBOM&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=none;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Helvetica;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="700" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #f0f4f8; }
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 48px; font-weight: bold; fill: #1a237e; }
+      .section-title { font-family: Arial, Helvetica, sans-serif; font-size: 36px; font-weight: bold; fill: #000000; }
+      .stage-num { font-family: Arial, Helvetica, sans-serif; font-size: 28px; font-weight: bold; }
+      .stage-title { font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 600; fill: #1a1a1a; }
+      .stage-desc { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #424242; }
+      .tech-label { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #666666; font-style: italic; }
+      .ps-label { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: bold; fill: #000000; }
+      .ps-value { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #1565C0; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" class="bg"/>
+  
+  <!-- Top Banner -->
+  <rect x="0" y="0" width="1920" height="120" fill="#ffffff"/>
+  <text x="960" y="75" text-anchor="middle" class="title">RAKSHAK VYUH - Technical Methodology</text>
+  
+  <!-- Left Section: Content -->
+  <g id="left-content">
+    
+    <!-- Problem Statement Section -->
+    <text x="80" y="200" class="section-title">Methodology</text>
+    <text x="350" y="200" class="ps-value">- Four-Stage Passive Analysis Pipeline</text>
+    
+    <!-- Stage 1 -->
+    <g id="stage1">
+      <rect x="80" y="250" width="80" height="80" fill="#2E7D32" rx="8"/>
+      <text x="120" y="305" text-anchor="middle" class="stage-num" fill="#ffffff">01</text>
+      
+      <text x="190" y="270" class="stage-title">Protocol Dissection</text>
+      <text x="190" y="300" class="stage-desc">• IKEv1/v2 handshake parser (Rust + nom)</text>
+      <text x="190" y="325" class="stage-desc">• SA proposals extraction with IANA validation</text>
+    </g>
+    
+    <!-- Stage 2 -->
+    <g id="stage2">
+      <rect x="80" y="370" width="80" height="80" fill="#1565C0" rx="8"/>
+      <text x="120" y="425" text-anchor="middle" class="stage-num" fill="#ffffff">02</text>
+      
+      <text x="190" y="390" class="stage-title">Compliance Engine</text>
+      <text x="190" y="420" class="stage-desc">• 15 RFC-cited posture rules (VYU-001 to VYU-015)</text>
+      <text x="190" y="445" class="stage-desc">• Deterministic checks: RFC 8221, 8247, NIST 800-77</text>
+    </g>
+    
+    <!-- Stage 3 -->
+    <g id="stage3">
+      <rect x="80" y="490" width="80" height="80" fill="#F57C00" rx="8"/>
+      <text x="120" y="545" text-anchor="middle" class="stage-num" fill="#ffffff">03</text>
+      
+      <text x="190" y="510" class="stage-title">Evidence Ledger</text>
+      <text x="190" y="540" class="stage-desc">• SHA-256 hash chain with PCAP digest binding</text>
+      <text x="190" y="565" class="stage-desc">• Every finding cites packet number + timestamp</text>
+    </g>
+    
+    <!-- Stage 4 -->
+    <g id="stage4">
+      <rect x="80" y="610" width="80" height="80" fill="#7B1FA2" rx="8"/>
+      <text x="120" y="665" text-anchor="middle" class="stage-num" fill="#ffffff">04</text>
+      
+      <text x="190" y="630" class="stage-title">Traffic Intelligence (ML)</text>
+      <text x="190" y="660" class="stage-desc">• XGBoost + 1D-CNN ensemble for side-channel analysis</text>
+      <text x="190" y="685" class="stage-desc">• Measured, never scored - offline inference only</text>
+    </g>
+    
+    <!-- Core Principles -->
+    <text x="80" y="760" class="section-title">Core Principles</text>
+    
+    <text x="80" y="810" class="ps-label">Passive-Only</text>
+    <text x="350" y="810" class="stage-desc">- Never decrypts ESP payloads</text>
+    
+    <text x="80" y="850" class="ps-label">Evidence-First</text>
+    <text x="350" y="850" class="stage-desc">- Every finding backed by ledger entry</text>
+    
+    <text x="80" y="890" class="ps-label">Honest AI</text>
+    <text x="350" y="890" class="stage-desc">- ML only for traffic patterns, not security scoring</text>
+    
+    <text x="80" y="930" class="ps-label">Sovereign</text>
+    <text x="350" y="930" class="stage-desc">- Zero cloud, zero telemetry, air-gapped ready</text>
+    
+    <!-- Validation -->
+    <text x="80" y="1000" class="tech-label">Ground Truth: 6 VYUH corpus captures • 137 tests • strongSwan 5.9.13 testbed</text>
+    <text x="80" y="1030" class="tech-label">Tech Stack: Rust (pcap, nom, rayon) • XGBoost + PyTorch • DuckDB • Tauri</text>
+  </g>
+  
+  <!-- Right Section: Visual Flow Diagram -->
+  <g id="right-visual">
+    
+    <!-- Vertical Flow -->
+    <g id="flow-diagram" transform="translate(1150, 250)">
+      
+      <!-- Input -->
+      <rect x="0" y="0" width="200" height="60" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3" rx="8"/>
+      <text x="100" y="25" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2E7D32">PCAP FILE</text>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="#424242">Offline Input</text>
+      
+      <!-- Arrow down -->
+      <line x1="100" y1="60" x2="100" y2="100" stroke="#424242" stroke-width="3"/>
+      <polygon points="100,100 95,90 105,90" fill="#424242"/>
+      
+      <!-- CipherLens Parser -->
+      <rect x="0" y="100" width="200" height="60" fill="#E3F2FD" stroke="#1565C0" stroke-width="3" rx="8"/>
+      <text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#1565C0">CIPHERLENS</text>
+      <text x="100" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#424242">IKE Dissector</text>
+      
+      <!-- Arrow down -->
+      <line x1="100" y1="160" x2="100" y2="200" stroke="#424242" stroke-width="3"/>
+      <polygon points="100,200 95,190 105,190" fill="#424242"/>
+      
+      <!-- AttackMap Rules -->
+      <rect x="0" y="200" width="200" height="60" fill="#FFF3E0" stroke="#F57C00" stroke-width="3" rx="8"/>
+      <text x="100" y="225" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#F57C00">ATTACKMAP</text>
+      <text x="100" y="245" text-anchor="middle" font-family="Arial" font-size="12" fill="#424242">15 Posture Rules</text>
+      
+      <!-- ML Side Branch -->
+      <line x1="100" y1="230" x2="280" y2="230" stroke="#7B1FA2" stroke-width="2" stroke-dasharray="5,5"/>
+      <rect x="280" y="210" width="180" height="50" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" rx="6"/>
+      <text x="370" y="232" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#7B1FA2">Traffic ML</text>
+      <text x="370" y="248" text-anchor="middle" font-family="Arial" font-size="10" fill="#666666">XGBoost + CNN</text>
+      
+      <!-- Arrow down -->
+      <line x1="100" y1="260" x2="100" y2="300" stroke="#424242" stroke-width="3"/>
+      <polygon points="100,300 95,290 105,290" fill="#424242"/>
+      
+      <!-- Evidence Ledger -->
+      <rect x="0" y="300" width="200" height="60" fill="#FFEBEE" stroke="#D32F2F" stroke-width="3" rx="8"/>
+      <text x="100" y="325" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#D32F2F">LEDGER</text>
+      <text x="100" y="345" text-anchor="middle" font-family="Arial" font-size="12" fill="#424242">SHA-256 Chain</text>
+      
+      <!-- Arrow down -->
+      <line x1="100" y1="360" x2="100" y2="400" stroke="#424242" stroke-width="3"/>
+      <polygon points="100,400 95,390 105,390" fill="#424242"/>
+      
+      <!-- Output: Score + Report -->
+      <rect x="0" y="400" width="200" height="80" fill="#E8EAF6" stroke="#3F51B5" stroke-width="3" rx="8"/>
+      <text x="100" y="430" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#3F51B5">GRADE: A-F</text>
+      <text x="100" y="455" text-anchor="middle" font-family="Arial" font-size="11" fill="#424242">JSON • HTML • CBOM</text>
+      <text x="100" y="470" text-anchor="middle" font-family="Arial" font-size="11" fill="#424242">Remediation Config</text>
+      
+      <!-- Air-gapped badge -->
+      <rect x="30" y="510" width="140" height="30" fill="#4CAF50" rx="15"/>
+      <text x="100" y="532" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#ffffff">AIR-GAPPED ✓</text>
+      
+    </g>
+    
+    <!-- Dataset box -->
+    <rect x="1150" y="590" width="600" height="120" fill="#fff9e6" stroke="#FFA726" stroke-width="2" rx="8"/>
+    <text x="1170" y="620" font-family="Arial" font-size="16" font-weight="bold" fill="#E65100">VYUH Corpus - 6 Real Captures</text>
+    <text x="1170" y="650" font-family="Arial" font-size="14" fill="#424242">T1: Modern (AES-256-GCM, ECP-256) → A</text>
+    <text x="1170" y="675" font-family="Arial" font-size="14" fill="#424242">T2: Weak DH (MODP-1024) → F</text>
+    <text x="1170" y="700" font-family="Arial" font-size="14" fill="#424242">T3: Aggressive Mode (3DES, MD5) → F</text>
+    
+    <text x="1450" y="650" font-family="Arial" font-size="14" fill="#424242">T4: NULL Encryption → F</text>
+    <text x="1450" y="675" font-family="Arial" font-size="14" fill="#424242">T5: X25519 → A</text>
+    <text x="1450" y="700" font-family="Arial" font-size="14" fill="#424242">T6: Legacy SHA-1 → B</text>
+    
+  </g>
+  
+  <!-- Footer -->
+  <rect x="0" y="1040" width="1920" height="40" fill="#1a237e"/>
+  <text x="80" y="1065" font-family="Arial" font-size="14" fill="#ffffff">PS: SIH26160 (NTRO) | Team: Venom | Deadline: 20 Sept 2026</text>
+  <text x="1840" y="1065" text-anchor="end" font-family="Arial" font-size="14" fill="#ffffff">Blockchain &amp; Cybersecurity</text>
+  
+</svg>

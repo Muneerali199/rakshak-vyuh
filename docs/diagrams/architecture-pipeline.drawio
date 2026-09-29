@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net" modified="2026-09-29T18:10:00.000Z" agent="Rakshak Vyuh" version="24.7.0" type="device">
+  <diagram name="Pipeline Architecture" id="pipeline">
+    <mxGraphModel dx="1100" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="760" background="#FFFFFF">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ─── Title ─── -->
+        <mxCell id="title" value="Rakshak Vyuh" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontFamily=Helvetica;fontColor=#1a1a1a;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="18" width="300" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- ─── Subtitle ─── -->
+        <mxCell id="subtitle" value="IPsec VPN Security Assessment" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#888888;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="51" y="50" width="300" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- ─── Dashed Air-Gapped Perimeter ─── -->
+        <mxCell id="border" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#AAAAAA;dashed=1;dashPattern=8 4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="600" height="580" as="geometry"/>
+        </mxCell>
+
+        <!-- Perimeter label (white bg masks the dashed line) -->
+        <mxCell id="perimeter" value="Air-Gapped Perimeter" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontFamily=Helvetica;fontColor=#999999;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;spacingLeft=3;spacingRight=3;" vertex="1" parent="1">
+          <mxGeometry x="48" y="81" width="142" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             VERTICAL SPINE — six processing stages
+             ════════════════════════════════════════ -->
+
+        <!-- Box 1: PCAP File -->
+        <mxCell id="b1" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;PCAP File&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;offline capture input&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=none;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="115" y="128" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 1 → 2 -->
+        <mxCell id="a12" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="180" as="sourcePoint"/>
+            <mxPoint x="215" y="218" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Box 2: CipherLens -->
+        <mxCell id="b2" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;CipherLens&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;IKEv1 · IKEv2 dissector&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=none;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="115" y="218" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 2 → 3 -->
+        <mxCell id="a23" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="270" as="sourcePoint"/>
+            <mxPoint x="215" y="308" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Box 3: AttackMap -->
+        <mxCell id="b3" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;AttackMap&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;15 posture rules&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=none;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="115" y="308" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 3 → 4 -->
+        <mxCell id="a34" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="360" as="sourcePoint"/>
+            <mxPoint x="215" y="398" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Box 4: Posture Score -->
+        <mxCell id="b4" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;Posture Score&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;grade A to F&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=none;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="115" y="398" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 4 → 5 -->
+        <mxCell id="a45" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="450" as="sourcePoint"/>
+            <mxPoint x="215" y="488" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Box 5: Evidence Ledger -->
+        <mxCell id="b5" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;Evidence Ledger&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;SHA-256 chain&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=none;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="115" y="488" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 5 → 6 -->
+        <mxCell id="a56" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="540" as="sourcePoint"/>
+            <mxPoint x="215" y="578" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Box 6: Report -->
+        <mxCell id="b6" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;Report&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;JSON · HTML · CBOM&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=none;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="115" y="578" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════
+             ML SIDE-BRANCH — amber accent
+             ════════════════════════════════════════ -->
+
+        <!-- Horizontal branch line from arrow 2→3 (at midpoint y=289) -->
+        <mxCell id="branch_h" value="" style="endArrow=none;strokeColor=#555555;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="289" as="sourcePoint"/>
+            <mxPoint x="500" y="289" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Vertical arrow down into amber box -->
+        <mxCell id="branch_v" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="289" as="sourcePoint"/>
+            <mxPoint x="500" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Amber box: Traffic Shape (light amber fill) -->
+        <mxCell id="amber" value="&lt;b style=&quot;font-size:13px;color:#1a1a1a&quot;&gt;Traffic Shape&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#888888&quot;&gt;gradient-boosted trees&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;spacingRight=10;fillColor=#FFF2CC;strokeColor=#555555;strokeWidth=1;arcSize=14;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="400" y="350" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Stub arrow from amber box (stops in empty space, does NOT rejoin spine) -->
+        <mxCell id="stub" value="" style="endArrow=block;endFill=1;strokeColor=#555555;strokeWidth=1;endSize=5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="402" as="sourcePoint"/>
+            <mxPoint x="500" y="434" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Caption beneath amber box -->
+        <mxCell id="caption" value="&lt;i&gt;measured, never scored&lt;/i&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontFamily=Helvetica;fontColor=#999999;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="410" y="438" width="170" height="18" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
